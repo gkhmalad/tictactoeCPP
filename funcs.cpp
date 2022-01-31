@@ -25,3 +25,58 @@ bool valid_position(vector<char> board, int position){
 
     return (board[position] == ' ');
 }
+
+bool check_win(vector<char> board){
+
+    if(board[0] == board[1] == board[2])
+        return true;
+    else if(board[3] == board[4] == board[5])
+        return true;
+    else if(board[6] == board[7] == board[8])
+        return true;
+    else if(board[0] == board[3] == board[6])
+        return true;
+    else if(board[1] == board[4] == board[7])
+        return true;
+    else if(board[2] == board[5] == board[8])
+        return true;
+    else if(board[0] == board[4] == board[8])
+        return true;
+    else if(board[6] == board[4] == board[2])
+        return true;
+
+    return false;
+}
+
+void winner(int winner){
+
+    if(winner == 1){
+        cout << "Congratulations Player 1! YOU WON";
+    }
+    else if(winner == 2){
+        cout << "Congratulations Player 2! YOU WON";
+    }
+    else{
+        cout << "It's a TIE!";
+    }
+}
+
+bool check_tie(vector<char> board){
+
+    if(!check_win(board)){
+
+        int emptycounter = 0;
+
+        for(int i =0; i < board.size(); i++){
+
+            if(board[i] == ' ')
+                emptycounter++;
+        }
+
+        if(emptycounter <= 2)
+            return true;
+
+    }
+
+    return false;
+}

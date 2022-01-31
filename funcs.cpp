@@ -20,3 +20,8 @@ void greet(){
     cout << "6" << " | " << "7" << " | " << "8\n";
     cout << "Player 1 alwas starts as X\nHave Fun!\n\n";
 }
+
+bool valid_position(vector<char> board, int position){
+
+    return (board[position] == ' ');
+}
